@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="label_size">16sp</dimen>
+    <dimen name="width_input_register">300dp</dimen>
+    <dimen name="height_input_register">30dp</dimen>
+    <dimen name="height_icon_register">35dp</dimen>
+</resources>

@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Mova-se</string>
+    <string name="subtitle">TODOS PODEM SER ATLETAS!</string>
+    <string name="btnLoginText">Entrar</string>
+    <string name="digite_seu_email">Digite seu e-mail</string>
+    <string name="digite_a_sua_senha">Digite a sua senha</string>
+    <string name="perfil">Perfil</string>
+    <string name="nome_completo">Nome completo:</string>
+    <string name="digite_seu_nome">Digite seu nome</string>
+    <string name="apelido">Apelido:</string>
+    <string name="digite_seu_apelido">Digite seu apelido</string>
+    <string name="data_nasc">Data de Nascimento</string>
+    <string name="celular_com_ddd">Celular (Com DDD):</string>
+    <string name="esporte_preferido">Esporte preferido:</string>
+    <string name="endereco">Endereço:</string>
+    <string name="sexo">Sexo:</string>
+    <string name="sexo_preferencial">Sexo preferencial para conexão:</string>
+    <string name="feminino">Feminino</string>
+    <string name="masculino">Masculino</string>
+    <string name="n_binario">Não binário</string>
+    <string name="ambos">Ambos</string>
+    <string name="aceito_os_termos">Aceito os termos e regras do aplicativo</string>
+    <string name="registre_se">Registre-se</string>
+    <string name="email">E-mail:</string>
+    <string name="digite_seu_endereço">Digite seu endereço</string>
+    <string name="senha">Senha:</string>
+</resources>

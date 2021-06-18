@@ -1,0 +1,32 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="HiddenTitleTheme" parent="AppTheme">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
+    <style name="AppTheme.WhiteAccent" parent="AppTheme">
+        <item name="colorAccent">@color/colorWhite</item>
+    </style>
+    <style name="Input" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">@color/text_input</item>
+        <item name = "android:textColorHint">@color/colorWhite</item>
+        <item name = "boxBackgroundColor">@color/colorPrimary</item>
+        <item name="boxBackgroundMode">outline</item>
+        <item name="boxStrokeWidth">2dp</item>
+        <item name="counterTextColor">@color/colorWhite</item>
+        <item name="helperTextTextColor">@color/colorWhite</item>
+        <item name="hintTextColor">@color/colorWhite</item>
+        <item name="placeholderTextColor">@color/colorWhite</item>
+        <item name="prefixTextColor">@color/colorWhite</item>
+        <item name="suffixTextColor">@color/colorWhite</item>
+    </style>
+    <style name="Button.Register" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorAccent">#00FF18</item>
+    </style>
+</resources>
