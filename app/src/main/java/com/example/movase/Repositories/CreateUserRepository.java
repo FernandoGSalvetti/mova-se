@@ -21,7 +21,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class UserRepository {
+public class CreateUserRepository {
     FireStore fireStore = new FireStore();
 
     private void createUserOnCollection(Activity activity, Usuario user, String id){

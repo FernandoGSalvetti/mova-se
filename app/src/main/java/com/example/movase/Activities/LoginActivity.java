@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,9 +14,15 @@ import android.widget.Toast;
 
 import com.example.movase.Models.Login;
 import com.example.movase.R;
+import com.example.movase.Repositories.LoginRepository;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import static android.webkit.ConsoleMessage.MessageLevel.LOG;
 
 public class LoginActivity extends AppCompatActivity {
+    private FirebaseAuth mAuth;
     private Button btnLogin;
     private Button btnRegistrar;
     private TextInputEditText etEmail;
@@ -23,11 +30,10 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.onResume();
-        super.onRestart();
+        verificaUsuarioFirebase();
         setContentView(R.layout.activity_login);
         Login login = new Login();
-        login.setActivity(LoginActivity.this);
+        LoginRepository loginRepository = new LoginRepository();
         inicializaComponentes();
         onChangeField(etEmail, login, "email");
         onChangeField(etSenha, login, "senha");
@@ -42,9 +48,19 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                login.TryLogin();
+                loginRepository.tryLogin(LoginActivity.this, login);
             }
         });
+    }
+
+    private void verificaUsuarioFirebase() {
+            mAuth = FirebaseAuth.getInstance();
+            FirebaseUser currentUser = mAuth.getCurrentUser();
+            if (currentUser != null) {
+                Intent mainIntent = new Intent(this, MainActivity.class);
+                startActivity(mainIntent);
+                finish();
+            }
     }
 
     private void onChangeField(TextInputEditText editText, Login login, String field) {

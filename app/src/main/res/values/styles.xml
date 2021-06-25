@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Customize your theme here. -->
@@ -14,11 +14,13 @@
         <item name="colorAccent">@color/colorWhite</item>
     </style>
     <style name="Input" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
-        <item name="boxStrokeColor">@color/text_input</item>
+        <item name="android:textColor">@color/colorWhite</item>
         <item name = "android:textColorHint">@color/colorWhite</item>
         <item name = "boxBackgroundColor">@color/colorPrimary</item>
         <item name="boxBackgroundMode">outline</item>
         <item name="boxStrokeWidth">2dp</item>
+        <item name="boxStrokeColor">@color/text_input</item>
+
         <item name="counterTextColor">@color/colorWhite</item>
         <item name="helperTextTextColor">@color/colorWhite</item>
         <item name="hintTextColor">@color/colorWhite</item>
@@ -26,7 +28,69 @@
         <item name="prefixTextColor">@color/colorWhite</item>
         <item name="suffixTextColor">@color/colorWhite</item>
     </style>
-    <style name="Button.Register" parent="Theme.MaterialComponents.Light.DarkActionBar">
-        <item name="colorAccent">#00FF18</item>
+    <style name="Widget.App.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.BottomNavigationView</item>
+    </style>
+
+    <style name="ThemeOverlay.App.BottomNavigationView" parent="">
+        <item name="colorPrimary">#FFFFCC</item>
+        <item name="colorOnPrimary">#E32636</item>
+    </style>
+
+    <style name="Widget.App.FloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.FloatingActionButton</item>
+    </style>
+
+    <style name="ThemeOverlay.App.FloatingActionButton" parent="">
+        <item name="colorSecondary"> @color/colorSecondary</item>
+        <item name="colorOnSecondary">@color/colorPrimary</item>
+        <item name="colorOnSurface">@color/colorPrimary</item>
+    </style>
+
+
+    <style name="Theme.App" parent="Theme.MaterialComponents">
+        <item name="textInputStyle">@style/Widget.App.ExposedDropdownMenu</item>
+    </style>
+
+    <style name="Widget.App.ExposedDropdownMenu" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="hintTextColor">@color/colorWhite</item>
+        <item name ="android:textColor">@color/colorWhite</item>
+        <item name="endIconTint">@color/colorWhite</item>
+        <item name="colorPrimary">@color/colorWhite</item>
+        <item name="colorOnSurface">@color/colorWhite</item>
+        <item name = "boxBackgroundColor">@color/colorPrimary</item>
+        <item name="boxBackgroundMode">outline</item>
+        <item name="boxStrokeWidth">2dp</item>
+        <item name="boxStrokeColor">@color/text_input</item>
+    </style>
+
+    <style name="TextAppearance.App.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/baloo</item>
+        <item name="android:fontFamily">@font/baloo</item>
+    </style>
+
+    <style name="TextAppearance.App.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="fontFamily">@font/baloo</item>
+        <item name="android:fontFamily">@font/baloo</item>
+    </style>
+
+    <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">4dp</item>
+    </style>
+
+    <style name="TopBar.Theme.App" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="toolbarStyle">@style/Widget.App.Toolbar</item>
+    </style>
+
+    <style name="Widget.App.Toolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Toolbar</item>
+        <item name="subtitleTextAppearance">@style/TextAppearance.AppCompat.Title</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Toolbar" parent="">
+        <item name="colorPrimary">@color/colorSecondary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/colorPrimary</item>
     </style>
 </resources>

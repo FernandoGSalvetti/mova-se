@@ -7,6 +7,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
@@ -20,7 +21,7 @@ import android.widget.Toast;
 import com.example.movase.Enum.Esportes;
 import com.example.movase.Models.UsuarioRegister;
 import com.example.movase.R;
-import com.example.movase.Repositories.UserRepository;
+import com.example.movase.Repositories.CreateUserRepository;
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 import com.google.android.material.textfield.TextInputEditText;
@@ -33,6 +34,7 @@ import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import com.mobsandgeeks.saripaar.annotation.Password;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class RegisterActivity extends AppCompatActivity implements Validator.ValidationListener {
@@ -74,11 +76,16 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
     private CheckBox checkBoxTermos;
 
     private Button btRegister;
-    private Spinner spinnerEsportsPref;
+    private AutoCompleteTextView spinnerEsportsPref;
     private ProgressBar pbRegister;
     private RadioButton sexo;
     private RadioButton sexoPref;
     private UsuarioRegister usuario = new UsuarioRegister();
+
+    final Calendar calendar = Calendar.getInstance();
+    int year = calendar.get(Calendar.YEAR);
+    int month = calendar.get(Calendar.MONTH);
+    int day_of_month = calendar.get(Calendar.DAY_OF_MONTH);
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,14 +97,14 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
         inicializaComponentes();
 
         //Mascara para o campo de celular
-        SimpleMaskFormatter smf = new SimpleMaskFormatter("(NN) NNNNN-NNNN");
-        MaskTextWatcher mtw = new MaskTextWatcher(celular, smf);
-        celular.addTextChangedListener(mtw);
+        SimpleMaskFormatter mfCelular = new SimpleMaskFormatter("(NN) NNNNN-NNNN");
+        MaskTextWatcher mtwCelular = new MaskTextWatcher(celular, mfCelular);
+        celular.addTextChangedListener(mtwCelular);
+        //Mascara para o campo de Data de Nascimento
+        SimpleMaskFormatter mfDataNasc = new SimpleMaskFormatter("NN/NN/NNNN");
+        MaskTextWatcher mtwDataNasc = new MaskTextWatcher(dataNasc, mfDataNasc);
+        dataNasc.addTextChangedListener(mtwDataNasc);
 
-        final Calendar calendar = Calendar.getInstance();
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH);
-        int day_of_month = calendar.get(Calendar.DAY_OF_MONTH);
 
 
 
@@ -110,15 +117,7 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
         onChangeField(celular, usuario, "celular");
         onChangeField(endereco, usuario, "endereco");
 
-        final DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                Calendar upDate = Calendar.getInstance();
-                upDate.set(year, month, dayOfMonth);
-                dataNasc.setText(formatDate(year, month + 1, dayOfMonth));
-                usuario.setDataNascimento(formatDate(year, month + 1, dayOfMonth));
-            };
-        }, year, month, day_of_month);
+
 
         spinnerEsportsPref.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -134,7 +133,7 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
         dataNasc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                datePickerDialog.show();
+                inflateDatePicker();
             }
         });
         rgSexo.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -171,7 +170,7 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
         endereco = findViewById(R.id.register_activity_etEndereco);
         dataNasc = findViewById(R.id.register_activity_etDate);
         btRegister = findViewById(R.id.register_activity_btRegister);
-        spinnerEsportsPref = findViewById(R.id.register_activity_spinnerEsportePref);
+        spinnerEsportsPref = findViewById(R.id.cadastrar_evento_activity_spinner_modalidade);
         rgSexo = findViewById(R.id.register_activity_RGSexo);
         rgSexoPref = findViewById(R.id.register_activity_rgSexoPref);
         checkBoxTermos = findViewById(R.id.register_activity_cbTermos);
@@ -180,6 +179,21 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
     public String formatDate(int year, int month, int day){
         return day + "/" + month + "/" + year;
     }
+
+    public void inflateDatePicker(){
+        final DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                Calendar upDate = Calendar.getInstance();
+                upDate.set(year, month, dayOfMonth);
+                dataNasc.setText(formatDate(year, month + 1, dayOfMonth));
+                usuario.setDataNascimento(formatDate(year, month + 1, dayOfMonth));
+            };
+        }, year, month, day_of_month);
+        datePickerDialog.getDatePicker().setMaxDate(new Date().getTime());
+        datePickerDialog.show();
+    }
+
     private void onChangeField(TextInputEditText editText, UsuarioRegister usuarioRegister, String field){
         editText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -223,7 +237,7 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
     @Override
     public void onValidationSucceeded() {
         pbRegister.setVisibility(View.VISIBLE);
-        UserRepository userRepository = new UserRepository();
+        CreateUserRepository userRepository = new CreateUserRepository();
         userRepository.createUser(RegisterActivity.this, this.usuario);
     }
 

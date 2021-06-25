@@ -17,10 +17,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 
 public class LoginRepository {
-    public void tryLogin(Activity activity, String email, String senha){
+    public void tryLogin(Activity activity, Login login){
         try{
             UserFirebase userFb = new UserFirebase();
-            userFb.getAuth().signInWithEmailAndPassword(email, senha).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            userFb.getAuth().signInWithEmailAndPassword(login.getEmail(), login.getPassword()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){

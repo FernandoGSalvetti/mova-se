@@ -7,42 +7,45 @@
     android:background="@color/colorPrimary"
     tools:context=".Activities.MainActivity">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="174dp"
-        android:layout_height="165dp"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/main_activity_fab_criar_evento"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        style="@style/Widget.App.FloatingActionButton"
+        app:layout_constraintBottom_toTopOf="@+id/main_activity_bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_baseline_add_24" />
+
+    <FrameLayout
+        android:id="@+id/main_activity_container"
+        android:layout_width="414dp"
+        android:layout_height="693dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toTopOf="@+id/main_activity_bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/main_activity_bottom_navigation"
+        style="@style/Widget.App.BottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/logo" />
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/menu_mova_se"
+        tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="113dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="16dp"
-        android:text="Bem-vindo"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/main_activity_btSair"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
-        android:backgroundTint="#000000"
-        android:text="Sair"
-        app:cornerRadius="3dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 </androidx.constraintlayout.widget.ConstraintLayout>
