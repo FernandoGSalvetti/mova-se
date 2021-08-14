@@ -8,7 +8,7 @@
     android:foregroundTint="#FFFFFF">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/cadastrar_evento_activity_appBarLayout"
+        android:id="@+id/activity_cadastrar_evento_appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,20 +18,20 @@
         app:layout_constraintVertical_bias="0.0">
 
         <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/cadastrar_evento_activity_topAppBar"
+            android:id="@+id/activity_cadastrar_evento_topAppBar"
             style="@style/Widget.App.Toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:textAlignment="center"
             app:menu="@menu/top_bar_cadastrar_evento_activity"
             app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
-            app:title="Evento"
+            app:title="Cadastrar evento"
             app:titleTextAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/cadastrar_evento_activity_label_nome"
+        android:id="@+id/activity_cadastrar_evento_label_nome"
         style="@style/Input"
         android:layout_width="0dp"
         android:layout_height="62dp"
@@ -41,20 +41,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cadastrar_evento_activity_appBarLayout"
+        app:layout_constraintTop_toBottomOf="@+id/activity_cadastrar_evento_appBarLayout"
         app:layout_constraintVertical_bias="0.0">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/cadastrar_evento_activity_etNome"
+            android:id="@+id/activity_cadastrar_evento_etNome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableEnd="@drawable/ic_baseline_edit_24"
             android:hint="Nome"
+            android:textCursorDrawable="@drawable/cursor_edit_text"
             android:textColor="#FFFFFF" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/menu"
+        android:id="@+id/activity_cadastrar_evento_label_modalidade"
         style="@style/Widget.App.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -66,28 +67,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cadastrar_evento_activity_label_nome"
+        app:layout_constraintTop_toBottomOf="@+id/activity_cadastrar_evento_label_nome"
         app:layout_constraintVertical_bias="0.0">
 
         <AutoCompleteTextView
-            android:id="@+id/cadastrar_evento_activity_spinner_modalidade"
+            android:id="@+id/activity_cadastrar_evento_select_modalidade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="none"
             android:textColor="#FFFFFF" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/cadastrar_evento_activity_mapView"
-        android:layout_width="0dp"
-        android:layout_height="133dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textInputLayout3"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
-        app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/cadastrar_evento_activity_label_data"
@@ -100,7 +90,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu"
+        app:layout_constraintTop_toBottomOf="@+id/activity_cadastrar_evento_label_modalidade"
         app:layout_constraintVertical_bias="0.0">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -109,11 +99,13 @@
             android:layout_height="wrap_content"
             android:drawableEnd="@drawable/ic_baseline_calendar_today_24"
             android:hint="Data"
-            android:inputType="date" />
+            android:inputType="date"
+            android:textColor="@color/colorWhite"
+            android:textCursorDrawable="@drawable/cursor_edit_text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2"
+        android:id="@+id/cadastrar_evento_activity_label_horario"
         style="@style/Input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -131,11 +123,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableEnd="@drawable/ic_baseline_access_time_24"
-            android:hint="Horário" />
+            android:hint="Horário"
+            android:inputType="time"
+            android:textColor="#FFFFFF"
+            android:textCursorDrawable="@drawable/cursor_edit_text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout3"
+        android:id="@+id/cadastrar_evento_activity_endereco_label"
         style="@style/Input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -145,7 +140,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/cadastrar_evento_activity_label_horario"
         app:layout_constraintVertical_bias="0.0">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -153,20 +148,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableEnd="@drawable/ic_baseline_location_on_24"
-            android:hint="Endereço" />
+            android:hint="Endereço"
+            android:textColor="#FFFFFF"
+            android:textCursorDrawable="@drawable/cursor_edit_text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <RadioGroup
         android:id="@+id/cadastrar_evento_activity_rgTipoEvento"
         android:layout_width="121dp"
         android:layout_height="67dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/cadastrar_evento_activity_mapView"
-        app:layout_constraintTop_toBottomOf="@+id/cadastrar_evento_activity_mapView"
-        app:layout_constraintVertical_bias="0.18">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintVertical_bias="0.0">
 
         <RadioButton
             android:id="@+id/cadastrar_evento_activity_rbAberto"
@@ -191,23 +189,24 @@
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="19dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="Tipo de Evento:"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/cadastrar_evento_activity_rgTipoEvento"
-        app:layout_constraintEnd_toEndOf="@+id/cadastrar_evento_activity_mapView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/cadastrar_evento_activity_rgTipoEvento"
-        app:layout_constraintTop_toBottomOf="@+id/cadastrar_evento_activity_mapView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cadastrar_evento_activity_endereco_label"
         app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/cadastrar_evento_activity_btCriarEvento"
         android:layout_width="200dp"
         android:layout_height="45dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:layout_marginBottom="8dp"
         android:backgroundTint="#009e0f"
         android:text="Criar evento"
@@ -215,7 +214,26 @@
         app:cornerRadius="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cadastrar_evento_activity_rgTipoEvento"
         app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/cadastrar_evento_activity_listar_participantes"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#FFFFFF"
+        android:text="Ver participantes"
+        android:textColor="@color/colorPrimary"
+        android:visibility="gone"
+        app:cornerRadius="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cadastrar_evento_activity_btCriarEvento"
+        app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

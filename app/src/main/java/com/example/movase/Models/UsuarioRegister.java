@@ -4,14 +4,14 @@ public class UsuarioRegister extends Usuario {
     private String email;
     private String senha;
 
-    public UsuarioRegister() {
-    };
-
-    public UsuarioRegister(String nomeCompleto, String apelido, String dataNascimento, String celular, String esportePreferido, String endereco, String sexo, String sexoPrefConexao, String email, String senha) {
-        super(nomeCompleto, apelido, dataNascimento, celular, esportePreferido, endereco, sexo, sexoPrefConexao);
+    public UsuarioRegister(String nomeCompleto, String apelido, String dataNascimento, String celular, String esportePreferido, String endereco, String sexo, String sexoPrefConexao, String email, String senha, String fotoPerfil) {
+        super(nomeCompleto, apelido, dataNascimento, celular, esportePreferido, endereco, sexo, sexoPrefConexao, fotoPerfil);
         this.email = email;
         this.senha = senha;
     };
+
+    public UsuarioRegister() {
+    }
 
     public String getEmail() {
         return email;
@@ -31,12 +31,13 @@ public class UsuarioRegister extends Usuario {
 
     @Override
     public String toString() {
-        return "UsuarioRegister{" +
-                "email='" + email + '\'' +
-                ", senha='" + senha + '\'' +
-                "nome" + getNomeCompleto() +
-                "Apelido" + getApelido() +
-                "DataNasc" + getDataNascimento() +
+        return "UsuarioRegister {" +
+                "\nEmail:" + getEmail()  +
+                "\nSenha:" + getSenha() +
+                "\nNome:" + getNomeCompleto() +
+                "\nApelido:" + getApelido() +
+                "\nDataNasc:" + getDataNascimento() +
+                "\nEsporte Pref:" + getEsportePreferido() +
                 '}';
     }
 }

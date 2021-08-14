@@ -23,9 +23,11 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class CreateUserRepository {
     FireStore fireStore = new FireStore();
-
+    // Esse método é chamado para criar o usuário após ter criado a autenticação do mesmo
     private void createUserOnCollection(Activity activity, Usuario user, String id){
         ProgressBar pg = activity.findViewById(R.id.register_activity_pgRegister);
+
+        //o addOnCompleteListener retorna quando a ação foi finalizada seja por erro ou por sucesso
         fireStore.db.collection("usuarios").document(id).set(user).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
@@ -44,10 +46,11 @@ public class CreateUserRepository {
             }
         });
     }
-
+    //aqui cria uma autenticação por email e senha para o usuário
     public void createUser(Activity activity, UsuarioRegister usuarioRegister){
         UserFirebase userFb = new UserFirebase();
         ProgressBar pg = activity.findViewById(R.id.register_activity_pgRegister);
+        //o addOnCompleteListener retorna quando a ação foi finalizada seja por erro ou por sucesso
         userFb.getAuth().createUserWithEmailAndPassword(usuarioRegister.getEmail(), usuarioRegister.getSenha()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {

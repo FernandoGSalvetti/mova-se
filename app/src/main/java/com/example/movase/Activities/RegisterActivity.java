@@ -4,8 +4,8 @@ import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -15,8 +15,6 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 import com.example.movase.Enum.Esportes;
 import com.example.movase.Models.UsuarioRegister;
@@ -52,7 +50,7 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
     private TextInputEditText nome;
 
     @NotEmpty(message = "O campo apelido não pode estar vazio")
-    @Length(min = 10, message = "O campo nome deve conter pelo menos 10 caracteres")
+    @Length(min = 2, message = "O campo nome deve conter pelo menos 2 caracteres")
     private TextInputEditText apelido;
 
     @NotEmpty(message = "O campo celular não pode estar vazio")
@@ -105,9 +103,6 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
         MaskTextWatcher mtwDataNasc = new MaskTextWatcher(dataNasc, mfDataNasc);
         dataNasc.addTextChangedListener(mtwDataNasc);
 
-
-
-
         ArrayAdapter<Esportes> adapterEsportesPref = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Esportes.values());
         spinnerEsportsPref.setAdapter(adapterEsportesPref);
         onChangeField(email, usuario, "email");
@@ -116,17 +111,21 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
         onChangeField(apelido, usuario, "apelido");
         onChangeField(celular, usuario, "celular");
         onChangeField(endereco, usuario, "endereco");
-
-
-
-        spinnerEsportsPref.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        onChangeField(dataNasc, usuario, "dataNascimento");
+        spinnerEsportsPref.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                usuario.setEsportePreferido(parent.getItemAtPosition(position).toString());
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
             }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
 
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                usuario.setEsportePreferido(s.toString());
             }
         });
 
@@ -170,7 +169,7 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
         endereco = findViewById(R.id.register_activity_etEndereco);
         dataNasc = findViewById(R.id.register_activity_etDate);
         btRegister = findViewById(R.id.register_activity_btRegister);
-        spinnerEsportsPref = findViewById(R.id.cadastrar_evento_activity_spinner_modalidade);
+        spinnerEsportsPref = findViewById(R.id.activity_editar_perfil_esporte_preferido);
         rgSexo = findViewById(R.id.register_activity_RGSexo);
         rgSexoPref = findViewById(R.id.register_activity_rgSexoPref);
         checkBoxTermos = findViewById(R.id.register_activity_cbTermos);
@@ -188,6 +187,7 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
                 upDate.set(year, month, dayOfMonth);
                 dataNasc.setText(formatDate(year, month + 1, dayOfMonth));
                 usuario.setDataNascimento(formatDate(year, month + 1, dayOfMonth));
+                Log.d("CRUD", usuario.getDataNascimento());
             };
         }, year, month, day_of_month);
         datePickerDialog.getDatePicker().setMaxDate(new Date().getTime());
@@ -225,7 +225,11 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
                         usuarioRegister.setCelular(et.toString());
                         break;
                     case "endereco":
-                        usuarioRegister.setEndereço(et.toString());
+                        usuarioRegister.setEndereco(et.toString());
+                        break;
+                    case "dataNascimento":
+                        usuarioRegister.setDataNascimento(et.toString());
+                        Log.d("CRUD", usuario.toString());
                         break;
                     default:
                         break;

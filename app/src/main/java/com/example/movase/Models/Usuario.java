@@ -1,6 +1,7 @@
 package com.example.movase.Models;
 
 import java.util.Date;
+import java.util.List;
 
 public abstract class Usuario {
     private String nomeCompleto;
@@ -10,11 +11,14 @@ public abstract class Usuario {
     private String esportePreferido;
     private String endereco;
     private String sexo;
+    //private List<Evento>;
     private String sexoPrefConexao;
+    private String fotoPerfil = "";
     public Usuario(){
 
     }
-    public Usuario(String nomeCompleto, String apelido, String dataNascimento, String celular, String esportePreferido, String endereco, String sexo, String sexoPrefConexao) {
+
+    public Usuario(String nomeCompleto, String apelido, String dataNascimento, String celular, String esportePreferido, String endereco, String sexo, String sexoPrefConexao, String fotoPerfil) {
         this.nomeCompleto = nomeCompleto;
         this.apelido = apelido;
         this.dataNascimento = dataNascimento;
@@ -23,10 +27,19 @@ public abstract class Usuario {
         this.endereco = endereco;
         this.sexo = sexo;
         this.sexoPrefConexao = sexoPrefConexao;
+        this.fotoPerfil = fotoPerfil;
+    }
+
+    public String getFotoPerfil() {
+        return fotoPerfil;
+    }
+
+    public void setFotoPerfil(String fotoPerfil) {
+        this.fotoPerfil = fotoPerfil;
     }
 
     public String getNomeCompleto() {
-        return nomeCompleto;
+        return this.nomeCompleto;
     }
 
     public void setNomeCompleto(String nomeCompleto) {
@@ -42,7 +55,7 @@ public abstract class Usuario {
     }
 
     public String getDataNascimento() {
-        return dataNascimento;
+        return this.dataNascimento;
     }
 
     public void setDataNascimento(String dataNascimento) {
@@ -58,23 +71,23 @@ public abstract class Usuario {
     }
 
     public String getEsportePreferido() {
-        return esportePreferido;
+        return this.esportePreferido;
     }
 
     public void setEsportePreferido(String esportePreferido) {
         this.esportePreferido = esportePreferido;
     }
 
-    public String getEndereço() {
+    public String getEndereco() {
         return endereco;
     }
 
-    public void setEndereço(String endereço) {
-        this.endereco = endereço;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
     public String getSexo() {
-        return sexo;
+        return this.sexo;
     }
 
     public void setSexo(String sexo) {
@@ -82,7 +95,7 @@ public abstract class Usuario {
     }
 
     public String getSexoPrefConexao() {
-        return sexoPrefConexao;
+        return this.sexoPrefConexao;
     }
 
     public void setSexoPrefConexao(String sexoPrefConexao) {

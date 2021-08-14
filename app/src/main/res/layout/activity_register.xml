@@ -257,7 +257,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <AutoCompleteTextView
-            android:id="@+id/cadastrar_evento_activity_spinner_modalidade"
+            android:id="@+id/activity_editar_perfil_esporte_preferido"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="none"

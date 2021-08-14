@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 
 public class LoginRepository {
+    //Este método faz o Login do usuário usando o authenthication
     public void tryLogin(Activity activity, Login login){
         try{
             UserFirebase userFb = new UserFirebase();
@@ -28,19 +29,16 @@ public class LoginRepository {
                         activity.startActivity(toLogin);
                         activity.finish();
                     }else{
-                        Log.e("ERRO LOGIN",task.getException().toString());
-                        switch (task.getException().toString()){
-                            case "com.google.firebase.auth.FirebaseAuthInvalidUserException: There is no user record corresponding to this identifier. The user may have been deleted.":
-                                Toast.makeText(activity, "E-mail não cadastrado no sistema", Toast.LENGTH_LONG).show();
-                                break;
-                            case "com.google.firebase.auth.FirebaseAuthInvalidCredentialsException: The password is invalid or the user does not have a password.":
-                                Toast.makeText(activity, "Senha incorreta", Toast.LENGTH_LONG).show();
-                                break;
-                            default:
-                                Toast.makeText(activity, "E-mail não cadastrado", Toast.LENGTH_LONG).show();
-                                break;
-                        }
-
+                        Log.d("ERRO LOGIN",task.getException().toString());
+                       if(task.getException().toString().equalsIgnoreCase("com.google.firebase.auth.FirebaseAuthInvalidUserException: There is no user record corresponding to this identifier. The user may have been deleted.")) {
+                           Toast.makeText(activity.getApplicationContext(), "E-mail não cadastrado no sistema", Toast.LENGTH_LONG).show();
+                       }else {
+                           if(task.getException().toString().equalsIgnoreCase("com.google.firebase.auth.FirebaseAuthInvalidCredentialsException: The password is invalid or the user does not have a password.")) {
+                               Toast.makeText(activity.getApplicationContext(), "Senha incorreta", Toast.LENGTH_LONG).show();
+                           }else {
+                               Toast.makeText(activity.getApplicationContext(), "E-mail não cadastrado", Toast.LENGTH_LONG).show();
+                           }
+                       }
                     }
                 }
             });
@@ -52,6 +50,7 @@ public class LoginRepository {
     };
     public void tryLogout(Activity activity){
         try{
+            //este método é responsável por fazer o logout do usuário
             UserFirebase userFb = new UserFirebase();
             userFb.getAuth().signOut();
             Intent toLogin = new Intent(activity, LoginActivity.class);

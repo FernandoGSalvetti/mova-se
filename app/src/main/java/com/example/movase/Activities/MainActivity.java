@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             @Override
             public void onClick(View v) {
                 Intent cadastrarEvento = new Intent(getApplicationContext(), CadastrarEventoActivity.class);
+                cadastrarEvento.putExtra("idEvento", "");
                 startActivity(cadastrarEvento);
-                finish();
             }
         });
     }
