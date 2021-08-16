@@ -75,7 +75,7 @@ public class MeusEventosFragment extends Fragment {
 
     private void inflateListViewMeusEventos() {
         if(listMeusEventos.size() > 0){
-            ListEventosAdapter adapterMeusEventos = new ListEventosAdapter(getActivity(), listMeusEventos);
+            ListEventosAdapter adapterMeusEventos = new ListEventosAdapter(getActivity(), listMeusEventos, false);
             meusEventos.setAdapter(adapterMeusEventos);
         }else{
             meusEventos.setVisibility(View.GONE);

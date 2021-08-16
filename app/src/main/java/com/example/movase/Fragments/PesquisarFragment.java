@@ -185,7 +185,7 @@ public class PesquisarFragment extends Fragment {
             listViewPesquisa.setAdapter(adapterPesquisaUsuario);
         }else{
             if(arrayListResultadoPesquisaEvento.size() > 0){
-                adapterMeusEventos = new ListEventosAdapter(getActivity(), arrayListResultadoPesquisaEvento);
+                adapterMeusEventos = new ListEventosAdapter(getActivity(), arrayListResultadoPesquisaEvento, true);
             }else{
                 listViewPesquisa.setVisibility(View.GONE);
             }

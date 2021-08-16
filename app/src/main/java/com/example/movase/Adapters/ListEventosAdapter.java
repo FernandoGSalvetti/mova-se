@@ -8,8 +8,16 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.example.movase.Models.EventoViewModel;
 import com.example.movase.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -17,11 +25,13 @@ public class ListEventosAdapter extends ArrayAdapter<EventoViewModel> {
 
     private Context context;
     private List<EventoViewModel> eventos = null;
+    private boolean fromPesquisaFrag;
 
-    public ListEventosAdapter(Context context,  List<EventoViewModel> eventos) {
+    public ListEventosAdapter(Context context,  List<EventoViewModel> eventos, boolean fromPesquisaFrag) {
         super(context, 0, eventos);
         this.eventos = eventos;
         this.context = context;
+        this.fromPesquisaFrag = fromPesquisaFrag;
     }
 
     @Override
@@ -63,6 +73,17 @@ public class ListEventosAdapter extends ArrayAdapter<EventoViewModel> {
             default:
                 eventoImage.setImageResource(R.drawable.ic_dumbbell__3_);
                 break;
+        }
+        if(fromPesquisaFrag){
+            TextView nomeDono = (TextView) view.findViewById(R.id.item_list_eventos_dono_evento);
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            db.collection("usuarios").document(evento.getIdCriadorDoEvento()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
+                    nomeDono.setVisibility(View.VISIBLE);
+                    nomeDono.setText("Dono do evento: " + task.getResult().get("nomeCompleto").toString());
+                }
+            });
         }
         TextView nomeEvento = (TextView) view.findViewById(R.id.item_list_eventos_nome);
         nomeEvento.setText(evento.getNome());
