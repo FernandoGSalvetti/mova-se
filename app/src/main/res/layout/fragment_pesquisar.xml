@@ -20,7 +20,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:hint="Buscar usuário ou evento"
-            android:textColorHint="@color/colorWhite"
+            android:textColorHint="@color/text_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="none"
-                android:textColor="#FFFFFF" />
+                android:textColor="@color/text_color" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -45,7 +45,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:hint="Dado de busca"
-            android:textColorHint="@color/colorWhite"
+            android:textColorHint="@color/text_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="none"
-                android:textColor="#FFFFFF" />
+                android:textColor="@color/text_color" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -69,6 +69,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
+            android:textColorHint="@color/text_color"
+            app:hintTextColor="@color/text_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -81,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/ic_baseline_edit_24"
                 android:hint="Busca"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/text_color"
                 android:textCursorDrawable="@drawable/cursor_edit_text" />
         </com.google.android.material.textfield.TextInputLayout>
 

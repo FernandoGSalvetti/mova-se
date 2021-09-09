@@ -13,7 +13,6 @@
     tools:context=".Activities.MainActivity">
 
 
-
     <TextView
         android:id="@+id/textView5"
         android:layout_width="151dp"
@@ -22,7 +21,7 @@
         android:fontFamily="@font/baloo"
         android:text="@string/app_name"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView"
@@ -49,7 +48,7 @@
         android:fontFamily="@font/baloo"
         android:text="@string/subtitle"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView"
@@ -66,6 +65,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="16dp"
+        android:textColorHint="@color/text_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,8 +79,8 @@
             android:drawableEnd="@drawable/ic_baseline_mail_24"
             android:hint="E-mail"
             android:inputType="textEmailAddress"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FDFDFD"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_color"
             android:textCursorDrawable="@drawable/cursor_edit_text"
             android:textSize="18dp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -93,6 +93,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="16dp"
+        android:textColorHint="@color/text_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -106,8 +107,8 @@
             android:drawableEnd="@drawable/ic_baseline_lock_24"
             android:hint="Senha"
             android:inputType="textPassword"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_color"
             android:textCursorDrawable="@drawable/cursor_edit_text" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -119,6 +120,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="16dp"
+        android:textColorHint="@color/text_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -133,8 +135,8 @@
             android:hint="Nome
 "
             android:inputType="text"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_color"
             android:textCursorDrawable="@drawable/cursor_edit_text" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -146,6 +148,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="16dp"
+        android:textColorHint="@color/text_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -159,8 +162,8 @@
             android:drawableEnd="@drawable/ic_baseline_alternate_email_24"
             android:hint="Apelido"
             android:inputType="text"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_color"
             android:textCursorDrawable="@drawable/cursor_edit_text" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -172,6 +175,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="16dp"
+        android:textColorHint="@color/text_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -185,8 +189,8 @@
             android:drawableEnd="@drawable/ic_baseline_calendar_today_24"
             android:hint="@string/data_nasc"
             android:inputType="date"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF" />
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_color" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -197,6 +201,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="16dp"
+        android:textColorHint="@color/text_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -210,8 +215,8 @@
             android:drawableEnd="@drawable/ic_baseline_smartphone_24"
             android:hint="Celular"
             android:inputType="phone"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_color"
             android:textCursorDrawable="@drawable/cursor_edit_text" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -223,6 +228,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="16dp"
+        android:textColorHint="@color/text_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -235,8 +241,8 @@
             android:layout_height="wrap_content"
             android:drawableEnd="@drawable/ic_baseline_location_on_24"
             android:hint="Endereço"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_color"
             android:textCursorDrawable="@drawable/cursor_edit_text" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -249,7 +255,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="16dp"
         android:hint="Modalidade"
-        android:textColorHint="@color/colorWhite"
+        android:textColorHint="@color/text_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -261,15 +267,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="none"
-            android:textColor="#FFFFFF" />
+            android:textColor="@color/text_color" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
     <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sexo"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         android:textSize="@dimen/label_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -284,7 +291,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:text="@string/sexo_preferencial"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         android:textSize="@dimen/label_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -309,26 +316,26 @@
             android:id="@+id/rbSexoFeminino"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:buttonTint="#FFFFFF"
+            android:buttonTint="@color/text_color"
             android:text="@string/feminino"
-            android:textColor="#FFFFFF" />
+            android:textColor="@color/text_color" />
 
         <RadioButton
             android:id="@+id/rbSexoMasculino"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:buttonTint="@color/cardview_light_background"
+            android:buttonTint="@color/text_color"
             android:inputType="text"
             android:text="@string/masculino"
-            android:textColor="#FFFFFF" />
+            android:textColor="@color/text_color" />
 
         <RadioButton
             android:id="@+id/rbSexoNBinario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:buttonTint="@color/cardview_light_background"
+            android:buttonTint="@color/text_color"
             android:text="@string/n_binario"
-            android:textColor="@color/cardview_light_background" />
+            android:textColor="@color/text_color" />
 
     </RadioGroup>
 
@@ -349,25 +356,25 @@
             android:id="@+id/rbPrefFeminino"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:buttonTint="@color/cardview_light_background"
+            android:buttonTint="@color/text_color"
             android:text="@string/feminino"
-            android:textColor="@color/cardview_light_background" />
+            android:textColor="@color/text_color" />
 
         <RadioButton
             android:id="@+id/rbPrefMasculino"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:buttonTint="@color/cardview_light_background"
+            android:buttonTint="@color/text_color"
             android:text="@string/masculino"
-            android:textColor="@color/cardview_light_background" />
+            android:textColor="@color/text_color" />
 
         <RadioButton
             android:id="@+id/rbPrefAmbos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:buttonTint="@color/cardview_light_background"
+            android:buttonTint="@color/text_color"
             android:text="@string/ambos"
-            android:textColor="@color/cardview_light_background" />
+            android:textColor="@color/text_color" />
     </RadioGroup>
 
     <CheckBox
@@ -375,9 +382,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:buttonTint="#FFFFFF"
+        android:buttonTint="@color/text_color"
         android:text="@string/aceito_os_termos"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

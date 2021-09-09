@@ -27,7 +27,7 @@
         android:layout_marginEnd="8dp"
         android:text="Participantes"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/activity_listar_participantes_activity"
         app:layout_constraintEnd_toEndOf="parent"

@@ -26,6 +26,7 @@
         android:layout_width="333dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:textColorHint="@color/text_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,8 +38,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_color"
             android:textCursorDrawable="@drawable/cursor_edit_text" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -48,6 +49,7 @@
         android:layout_width="333dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:textColorHint="@color/text_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,8 +62,8 @@
             android:layout_height="wrap_content"
             android:hint="Senha"
             android:inputType="textPassword"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_color"
             android:textCursorDrawable="@drawable/cursor_edit_text" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -105,7 +107,7 @@
         android:fontFamily="@font/baloo"
         android:text="Mova-se"
         android:textAlignment="center"
-        android:textColor="#F8F8F8"
+        android:textColor="@color/text_color"
         android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView4"
@@ -120,7 +122,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/baloo"
         android:text="@string/subtitle"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView4"
         app:layout_constraintEnd_toEndOf="parent"

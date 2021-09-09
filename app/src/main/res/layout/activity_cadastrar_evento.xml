@@ -26,7 +26,8 @@
             app:menu="@menu/top_bar_cadastrar_evento_activity"
             app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
             app:title="Cadastrar evento"
-            app:titleTextAppearance="@style/TextAppearance.AppCompat.Medium" />
+            app:titleTextAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:titleTextColor="@color/text_color" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -38,6 +39,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        android:textColorHint="@color/text_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,8 +52,9 @@
             android:layout_height="wrap_content"
             android:drawableEnd="@drawable/ic_baseline_edit_24"
             android:hint="Nome"
-            android:textCursorDrawable="@drawable/cursor_edit_text"
-            android:textColor="#FFFFFF" />
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_color"
+            android:textCursorDrawable="@drawable/cursor_edit_text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -63,7 +66,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:hint="Modalidade"
-        android:textColorHint="@color/colorWhite"
+        android:textColorHint="@color/text_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,7 +78,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="none"
-            android:textColor="#FFFFFF" />
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_color" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,6 +91,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        android:textColorHint="@color/text_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,7 +105,8 @@
             android:drawableEnd="@drawable/ic_baseline_calendar_today_24"
             android:hint="Data"
             android:inputType="date"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_color"
             android:textCursorDrawable="@drawable/cursor_edit_text" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -112,6 +118,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        android:textColorHint="@color/text_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -125,7 +132,8 @@
             android:drawableEnd="@drawable/ic_baseline_access_time_24"
             android:hint="Horário"
             android:inputType="time"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_color"
             android:textCursorDrawable="@drawable/cursor_edit_text" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -137,6 +145,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        android:textColorHint="@color/text_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -149,7 +158,8 @@
             android:layout_height="wrap_content"
             android:drawableEnd="@drawable/ic_baseline_location_on_24"
             android:hint="Endereço"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_color"
             android:textCursorDrawable="@drawable/cursor_edit_text" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -170,20 +180,20 @@
             android:id="@+id/cadastrar_evento_activity_rbAberto"
             android:layout_width="match_parent"
             android:layout_height="32dp"
-            android:buttonTint="#FFFFFF"
-            android:shadowColor="#FFFFFF"
+            android:buttonTint="@color/text_color"
+            android:shadowColor="@color/text_color"
             android:text="Aberto"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_color"
             android:textSize="12dp" />
 
         <RadioButton
             android:id="@+id/cadastrar_evento_activity_rbPrivado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:buttonTint="#FFFFFF"
+            android:buttonTint="@color/text_color"
             android:text="Privado"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/text_color"
             android:textSize="12sp" />
     </RadioGroup>
 
@@ -194,7 +204,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="Tipo de Evento:"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
