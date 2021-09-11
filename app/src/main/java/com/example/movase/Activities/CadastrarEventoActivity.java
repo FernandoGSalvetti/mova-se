@@ -75,6 +75,7 @@ public class CadastrarEventoActivity extends AppCompatActivity implements Valida
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         id = intent.getStringExtra("idEvento");
+
         setContentView(R.layout.activity_cadastrar_evento);
         inicializaComponentes();
 
@@ -89,10 +90,10 @@ public class CadastrarEventoActivity extends AppCompatActivity implements Valida
         SimpleMaskFormatter mfHorario = new SimpleMaskFormatter("NN:NN");
         MaskTextWatcher mtwHorario = new MaskTextWatcher(etHorario, mfHorario);
         etHorario.addTextChangedListener(mtwHorario);
-        onChangeField(etData, evento, "data");
-        onChangeField(etNome, evento, "nome");
-        onChangeField(etEndereco,evento, "endereco");
-        onChangeField(etHorario, evento, "horario");
+        onChangeField(etData, "data");
+        onChangeField(etNome, "nome");
+        onChangeField(etEndereco, "endereco");
+        onChangeField(etHorario, "horario");
 
         tipoDeEvento.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -145,10 +146,9 @@ public class CadastrarEventoActivity extends AppCompatActivity implements Valida
                 startActivity(irParaListagemDeParticipante);
             }
         });
-        if(id.isEmpty() == false){
+        if(!id.isEmpty()){
             btnVerParticipantes.setVisibility(View.VISIBLE);
             populaComponentes(id);
-
         }
     }
     private void selectValue(ArrayAdapter adapter, String value) {
@@ -169,6 +169,7 @@ public class CadastrarEventoActivity extends AppCompatActivity implements Valida
                     selectValue(adapterEsportesPref, evento.getModalidade());
                     materialToolbar.setTitle("Editar Evento");
                     etData.setText(evento.getData());
+
                     if(evento.getTipoDeEvento().equalsIgnoreCase("aberto")){
                         tipoDeEvento.check(R.id.cadastrar_evento_activity_rbAberto);
                     }else{
@@ -195,7 +196,7 @@ public class CadastrarEventoActivity extends AppCompatActivity implements Valida
         materialToolbar = findViewById(R.id.activity_cadastrar_evento_topAppBar);
         btnVerParticipantes = findViewById(R.id.cadastrar_evento_activity_listar_participantes);
     }
-    private void onChangeField(TextInputEditText editText, EventoViewModel evento , String field){
+    private void onChangeField(TextInputEditText editText, String field){
         editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -218,6 +219,7 @@ public class CadastrarEventoActivity extends AppCompatActivity implements Valida
                         break;
                     case "data":
                         evento.setData(et.toString());
+                        Log.d("CRUD", evento.getData());
                         break;
                     case "endereco":
                         evento.setEndereco(et.toString());
@@ -237,6 +239,7 @@ public class CadastrarEventoActivity extends AppCompatActivity implements Valida
         if(id.isEmpty()){
             eventoRepository.criarEvento(this, evento);
         }else{
+            Log.d("CRUD", evento.getData());
             eventoRepository.atualizaEvento(this, evento);
         }
     }

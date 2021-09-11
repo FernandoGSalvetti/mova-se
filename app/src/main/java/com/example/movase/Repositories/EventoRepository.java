@@ -197,6 +197,7 @@ public class EventoRepository {
     public void atualizaEvento(Activity activity, EventoViewModel evento){
         UserFirebase userFb = new UserFirebase();
         evento.setIdCriadorDoEvento(userFb.getCurrentUserUser().getUid());
+        Log.d("CRUD", evento.getData());
         fireStore.db.collection("eventos").document(evento.getId()).set(evento, SetOptions.merge()).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull @NotNull Task<Void> task) {
